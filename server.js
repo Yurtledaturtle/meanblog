@@ -1,54 +1,36 @@
-var express       =       require('express'),
-    bodyParser    =       require('body-parser'),
-    mongoose      =       require('mongoose'),
-    http          =       require('http'),
-    socketIo      =       require('socket.io'),
-    morgan        =       require('morgan');
+var express     =    require('express'),
+    bodyParser  =    require('body-parser'),
+    mongoose    =    require('mongoose'),
+    morgan      =    require('morgan');
 
-
+// *** Create Application Object ***
 var app = express();
 
-var wrapperServer = http.Server(app);
-var io = socketIo(wrapperServer);
+// *** Connect to Database ***
+mongoose.connect('mongodb://localhost/mean_blog');
 
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/meanblogserver');
-
+// *** Server Logging ***
 app.use(morgan('dev'));
 
+// *** Setting Public Folder ***
 app.use(express.static(__dirname + '/client'));
 
+// *** Config Body Parsing ***
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-io.on('connection', function(socket){
-
-  console.log('...user connected');
-
-  socket.on('sending message', function(message){
-      console.log('received message: ', message);
-      var chat = new Chat(message);
-      chat.save(function(){
-        io.emit('emitting message', message);
-      });
-  });
-});
-
+// *** Route Route ***
 app.get('/', function(req, res){
-  res.sendFile(__dirname + '/client/index.html')
+  res.sendFile(__dirname + '/client/index.html');
 });
 
-app.get('/api/chats', function(req, res){
-  Chat.find({}, function(err, chats){
-    res.json(chats);
-  });
-});
+// *** Routing/Controllers ***
+var UsersController = require('./server/controllers/users');
+app.use('/api/users', UsersController);
+var ReflectionsController = require('./server/controllers/reflections');
+app.use('/api/reflections', ReflectionsController);
 
-// var UsersController = require('./server/controllers/users');
-// app.use('/api/users', UsersController);
-// var RecipesController = require('./server/controllers/recipes');
-// app.use('/api/recipes', RecipesController);
-
-var port = process.env.PORT || '8080';
-wrapperServer.listen(port, function(){
-  console.log('listening');
+// *** Start Listening... ***
+app.listen(8080, function(){
+  console.log("... listening");
 });

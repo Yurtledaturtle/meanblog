@@ -3,19 +3,22 @@ var mongoose    =    require('mongoose'),
     randToken   =    require('rand-token'),
     bcrypt      =    require('bcrypt-nodejs');
 
-    // var ChatSchema = new mongoose.Schema({
-    //   username: {type: String},
-    //   message: {type: String}
-    // });
-    //
-    // var Chat = mongoose.model('Chat', ChatSchema);
-
-
 // Schema for the model
 var UserSchema = new mongoose.Schema({
   username: {type: String, required: true },
   password: {type: String},
-  token: {type: String}
+  token: {type: String},
+  reflections: [
+    {
+      name: {type: String},
+      items: [
+        {
+          name: {type: String},
+          quantity: {type: String}
+        }
+      ]
+    }
+  ]
 });
 
 // pre-save "hook"
