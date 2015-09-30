@@ -39,17 +39,18 @@
       <button ng-show="token" type="button" ng-click="logOut()" name="button">LogOut</button>
 
       <div ng-show="token" class="new-reflection">
+      </br>
         <form ng-submit='createReflection()'>
-          <input ng-model="newReflection.name" type="text" placeholder='...name'>
+          <textarea ng-model="newReflection.name" type="text" placeholder='...name'></textarea>
 
-          <ul>
+          <!-- <ul>
             <div ng-repeat="item in newReflection.items">
               <input type="text" ng-model="item.name" placeholder="...name">
               <input type="text" ng-model="item.quantity" placeholder="...name">
             </div>
             <button type="button" ng-click="addItemLocation()" name="button">+</button>
-          </ul>
-
+          </ul> -->
+        </br>
           <input type="submit">
         </form>
       </div>
@@ -57,18 +58,18 @@
       <div  ng-repeat="user in users">
         <span ng-click="user.reflectionsDisplay = !user.reflectionsDisplay">
           <h4>{{ user.username }}</h4>
-          <ul ng-show="user.reflectionsDisplay">
-            <li ng-repeat="reflection in user.reflections">
+          <div ng-show="user.reflectionsDisplay">
+            <div ng-repeat="reflection in user.reflections">
               <p>
                 {{reflection.name}}
-                <ul>
+                <!-- <ul>
                   <li ng-repeat="item in reflection.items">
                     {{item.name}} - {{item.quantity}}
                   </li>
-                </ul>
+                </ul> -->
               </p>
-            </li>
-          </ul>
+            </div>
+          </div>
         </span>
       </div>
 

@@ -1,7 +1,10 @@
 body{
-  background-color: lightblue;
+  background-image: url("http://b.rarewallpapers.com/media/wallpapers_1024x600/1/cozy-living-room-3577.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
   text-align: center;
+  color: white;
 }
-ul{
-     list-style:none;
+span h4{
+  display: inline;
 }
