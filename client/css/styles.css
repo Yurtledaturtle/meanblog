@@ -8,10 +8,24 @@ body{
   font-family: 'Philosopher', sans-serif;
 }
 h4{
+  cursor: pointer;
+  display: inline-block;
   position: relative;
-  background-color: rgba(0, 0, 0, .5);
+  color: black;
+  background-color: rgba(255, 255, 255, .5);
   border: solid white 1px;
   padding: 5px;
+  border-radius: 12px;
+}
+input[type="submit"] {
+  position: relative;
+  top: 1px;
+  width: 16%;
+  background-color: rgba(230, 230, 230, .75);
+}
+input[type="submit"]:hover {
+  background-color: rgba(50, 50, 50, .75);
+  color: white;
 }
 textarea{
   font-family: 'Philosopher', sans-serif;
@@ -24,14 +38,16 @@ textarea{
   height: 165px;
 }
 .philobuttons{
-  background-color: lightgrey;
+  background-color: rgba(230, 230, 230, .75);
 }
 #thisone{
-  background-color: lightgrey;
+  background-color: rgba(230, 230, 230, .75);
 }
 .postpara{
-  background-color: rgba(0, 0, 0, .5);
+  cursor: pointer;
+  border-radius: 12px;
+  display: inline-block;
+  background-color: rgba(25, 25, 25, .80);
   border: solid white 1px;
-  padding: 5px;
   word-wrap: break-word;
 }

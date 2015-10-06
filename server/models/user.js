@@ -10,7 +10,8 @@ var UserSchema = new mongoose.Schema({
   token: {type: String},
   reflections: [
     {
-      post: {type: String}
+      post: {type: String},
+      timestamp: {type: Date, default: Date.now}
     }
   ]
 });
