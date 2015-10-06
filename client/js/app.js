@@ -8,7 +8,7 @@ angular.module('ArmchairPhilosophy')
     $scope.users = [];
     $scope.newUser = {};
     $scope.logInUser = {};
-    $scope.newReflection = {name: '', items:[{}]};
+    $scope.newReflection = {post: ''};
 
     $scope.getUsers = function(){
       $http.get('/api/users').then(function(response){

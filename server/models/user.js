@@ -10,13 +10,7 @@ var UserSchema = new mongoose.Schema({
   token: {type: String},
   reflections: [
     {
-      name: {type: String},
-      items: [
-        {
-          name: {type: String},
-          quantity: {type: String}
-        }
-      ]
+      post: {type: String}
     }
   ]
 });

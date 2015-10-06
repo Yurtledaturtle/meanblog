@@ -2,9 +2,36 @@ body{
   background-image: url("http://b.rarewallpapers.com/media/wallpapers_1024x600/1/cozy-living-room-3577.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  text-align: center;
+  margin: 0 auto;
   color: white;
+  text-align: center;
+  font-family: 'Philosopher', sans-serif;
 }
-span h4{
-  display: inline;
+h4{
+  position: relative;
+  background-color: rgba(0, 0, 0, .5);
+  border: solid white 1px;
+  padding: 5px;
+}
+textarea{
+  font-family: 'Philosopher', sans-serif;
+  margin-bottom: 13px;
+  color: black;
+  font-weight: bolder;
+  font-size: 1em;
+  background-color: rgba(230, 230, 230, .75);
+  width: 335px;
+  height: 165px;
+}
+.philobuttons{
+  background-color: lightgrey;
+}
+#thisone{
+  background-color: lightgrey;
+}
+.postpara{
+  background-color: rgba(0, 0, 0, .5);
+  border: solid white 1px;
+  padding: 5px;
+  word-wrap: break-word;
 }

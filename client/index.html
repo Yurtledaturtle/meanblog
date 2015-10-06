@@ -3,18 +3,20 @@
   <head>
     <meta charset="utf-8">
     <title>Armchair Philosophy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+    <link href='https://fonts.googleapis.com/css?family=Philosopher' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/css/styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-cookies.js"></script>
   </head>
-  <body>
+  <body class="container">
 
     <section ng-controller='UsersController'>
 
       <div class="meta-information">
-        <h3>
+        <h2>
           {{ welcome }}
-        </h3>
+        </h2>
       </div>
 
       <div ng-hide="token" class="sign-up">
@@ -35,38 +37,25 @@
         </form>
       </div>
 
-      <h3 ng-show="token">You're logged in</h3>
-      <button ng-show="token" type="button" ng-click="logOut()" name="button">LogOut</button>
+      <h3 ng-model="users" ng-show="token">You're logged in, {{ user.username }}</h3>
+      <button class='philobuttons' ng-show="token" type="button" ng-click="logOut()" name="button">LogOut</button>
 
       <div ng-show="token" class="new-reflection">
       </br>
         <form ng-submit='createReflection()'>
-          <textarea ng-model="newReflection.name" type="text" placeholder='...name'></textarea>
-
-          <!-- <ul>
-            <div ng-repeat="item in newReflection.items">
-              <input type="text" ng-model="item.name" placeholder="...name">
-              <input type="text" ng-model="item.quantity" placeholder="...name">
-            </div>
-            <button type="button" ng-click="addItemLocation()" name="button">+</button>
-          </ul> -->
+          <textarea ng-model="newReflection.post" type="text" placeholder='...name'></textarea>
         </br>
-          <input type="submit">
+          <input class='philobuttons' id="thisone" type="submit">
         </form>
       </div>
 
-      <div  ng-repeat="user in users">
+      <div ng-repeat="user in users">
         <span ng-click="user.reflectionsDisplay = !user.reflectionsDisplay">
           <h4>{{ user.username }}</h4>
           <div ng-show="user.reflectionsDisplay">
             <div ng-repeat="reflection in user.reflections">
-              <p>
-                {{reflection.name}}
-                <!-- <ul>
-                  <li ng-repeat="item in reflection.items">
-                    {{item.name}} - {{item.quantity}}
-                  </li>
-                </ul> -->
+              <p class="postpara">
+                {{reflection.post}}
               </p>
             </div>
           </div>
