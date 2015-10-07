@@ -52,4 +52,4 @@ angular.module('ArmchairPhilosophy')
 
     $scope.token = $cookies.get('token');
 
-  }]);
+}]);

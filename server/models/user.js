@@ -16,7 +16,7 @@ var UserSchema = new mongoose.Schema({
   ]
 });
 
-// pre-save "hook"
+// pre-save hook
 UserSchema.pre('save', function(next) {
   var user = this;
 

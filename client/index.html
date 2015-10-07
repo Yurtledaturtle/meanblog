@@ -12,39 +12,39 @@
   <body class="container">
 
     <section ng-controller='UsersController'>
-<div id="user-field">
-      <div ng-hide="token" class="sign-up">
-        <h3>Sign Up:</h3>
-        <form ng-submit="createUser()">
-          <input class="user-input" type="text" ng-model="newUser.username" placeholder="...username">
-          <input class="user-input" type="password" ng-model="newUser.password" placeholder="...password">
-          <input type="submit">
-        </form>
+      <div id="user-field">
+        <div ng-hide="token" class="sign-up">
+          <h3>Sign Up:</h3>
+          <form ng-submit="createUser()">
+            <input class="user-input" type="text" ng-model="newUser.username" placeholder="...username">
+            <input class="user-input" type="password" ng-model="newUser.password" placeholder="...password">
+            <input type="submit">
+          </form>
+        </div>
+
+        <div ng-hide="token" class="log-in">
+          <h3>Log In:</h3>
+          <form ng-submit="obtainToken()">
+            <input class="user-input" type="text" ng-model="logInUser.username" placeholder="...username">
+            <input class="user-input" type="password" ng-model="logInUser.password" placeholder="...password">
+            <input type="submit">
+          </form>
+        </div>
       </div>
 
-      <div ng-hide="token" class="log-in">
-        <h3>Log In:</h3>
-        <form ng-submit="obtainToken()">
-          <input class="user-input" type="text" ng-model="logInUser.username" placeholder="...username">
-          <input class="user-input" type="password" ng-model="logInUser.password" placeholder="...password">
-          <input type="submit">
-        </form>
-      </div>
-</div>
       <div class="meta-information">
         <h2>
           {{ welcome }}
         </h2>
       </div>
 
-      <!-- <h1 ng-model="users" ng-show="token">Welcome!</h3> -->
       <button id='logout' ng-show="token" type="button" ng-click="logOut()" name="button">LogOut</button>
 
       <div ng-show="token" class="new-reflection">
-      </br>
+        </br>
         <form ng-submit='createReflection()'>
           <textarea ng-model="newReflection.post" type="text" placeholder='...name'></textarea>
-        </br>
+          </br>
           <input id="post-submit" type="submit">
         </form>
       </div>
