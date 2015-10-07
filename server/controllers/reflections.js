@@ -3,7 +3,7 @@ var express            =   require('express'),
     reflectionsRouter  =   express.Router();
 
 reflectionsRouter.post('/', function(req, res){
-  
+
   User.findOne({token: req.headers.token}, function(err, user){
     user.reflections.push(req.body);
     user.save(function(){

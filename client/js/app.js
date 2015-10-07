@@ -38,10 +38,6 @@ angular.module('ArmchairPhilosophy')
       });
     };
 
-    $scope.addItemLocation = function(){
-      $scope.newReflection.items.push({});
-    };
-
     $scope.obtainToken = function(){
       $http.post("/api/users/authentication_token", $scope.logInUser).then(function(reponse){
         $scope.token = reponse.data.token;
