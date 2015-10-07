@@ -7,7 +7,7 @@ var express     =    require('express'),
 var app = express();
 
 // *** Connect to Database ***
-mongoose.connect('mongodb://localhost/mean_blog');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/mean_blog');
 
 // *** Server Logging ***
 app.use(morgan('dev'));
@@ -31,6 +31,7 @@ var ReflectionsController = require('./server/controllers/reflections');
 app.use('/api/reflections', ReflectionsController);
 
 // *** Start Listening... ***
-app.listen(8080, function(){
+var port = process.env.PORT || 8080;
+app.listen(port, function(){
   console.log("... listening");
 });
