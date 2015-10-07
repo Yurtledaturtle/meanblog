@@ -23,7 +23,6 @@ h4{
 }
 input[type="submit"] {
   position: relative;
-  float: right;
   margin-left: 5px;
   border-radius: 50%;
   display: block;
@@ -44,6 +43,10 @@ textarea{
   background-color: rgba(230, 230, 230, .75);
   width: 335px;
   height: 165px;
+  display: inline-block;
+}
+textarea::-webkit-input-placeholder {
+  color: black;
 }
 .philobuttons{
   background-color: rgba(230, 230, 230, .75);
@@ -64,6 +67,18 @@ textarea{
 }
 .log-in{
   display: inline-block;
+}
+#logout{
+  position: relative;
+  margin-left: 47%;
+  border-radius: 50%;
+  display: block;
+  padding: 0px;
+  background-color: rgba(230, 230, 230, .75);
+}
+#logout:hover{
+  background-color: rgba(50, 50, 50, .75);
+  color: white;
 }
 input[type="text"]{
   height: 20px;
@@ -90,4 +105,8 @@ h2{
   border-radius: 12px;
   padding-left: 50px;
   padding-right: 50px;
+}
+#post-submit{
+  margin-left: 47%;
+  display: block;
 }
